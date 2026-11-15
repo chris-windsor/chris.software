@@ -1,9 +1,12 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.ico';
+	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<title>Chris Windsor · software engineer</title>
+	<link rel="icon" type="image/svg+xml" href={favicon} />
+</svelte:head>
 {@render children()}
