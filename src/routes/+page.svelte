@@ -8,6 +8,32 @@
 		{ name: 'LinkedIn', href: 'https://linkedin.com/in/chris-windsor' },
 		{ name: 'Email', href: 'mailto:hey@chris.software' }
 	];
+
+	type Project = {
+		name: string;
+		href: string;
+		appStore?: string;
+		description: string;
+	};
+
+	const projects: Project[] = [
+		{
+			name: 'reaerolize',
+			href: 'https://reaerolize.com',
+			appStore: 'https://apps.apple.com/us/app/reaerolize/id6830252554',
+			description: 'aero data dashboard and tools for enthusiasts'
+		},
+		{
+			name: 'windowseat.photos',
+			href: 'https://windowseat.photos',
+			description: 'social website to share pictures taken from airplanes'
+		},
+		{
+			name: 'topo.tools',
+			href: 'https://topo.tools',
+			description: 'toolset for researchers to query and scan maps and imagery simultaneously'
+		}
+	];
 </script>
 
 <div class="fixed top-0 left-0 h-full w-2 md:w-3">
@@ -16,19 +42,14 @@
 <div class="ml-2 md:ml-3">
 	<nav class="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
 		<div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-4 md:px-12">
-			<a
-				href="https://chris.software"
-				class="hover:text-accent-foreground font-mono text-sm text-foreground transition-colors"
-			>
-				chris.software
-			</a>
+			<a href="https://chris.software" class="font-mono text-sm text-foreground">chris.software</a>
 			<div class="flex items-center gap-6">
-				{#each navItems as item}
+				{#each navItems as item (item.name)}
 					<a
 						href={item.href}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="flex h-6 w-6 items-center justify-center"
+						class="flex h-5 w-5 items-center justify-center opacity-70 transition-opacity hover:opacity-100"
 						aria-label={item.name}
 					>
 						{#if item.name === 'GitHub'}
@@ -38,8 +59,8 @@
 						{:else if item.name === 'Email'}
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
+								width="20"
+								height="20"
 								viewBox="0 0 24 24"
 								fill="none"
 								stroke="currentColor"
@@ -56,12 +77,13 @@
 			</div>
 		</div>
 	</nav>
-	<div class="mx-auto max-w-3xl px-6 py-12 md:px-12 md:py-24">
-		<section class="pt-8 md:pt-16">
+
+	<main class="mx-auto max-w-3xl px-6 py-8 md:px-12 md:py-10">
+		<section>
 			<h1 class="text-4xl font-medium tracking-tight text-balance text-foreground md:text-5xl">
 				Chris Windsor
 			</h1>
-			<p class="mt-2 text-lg text-muted-foreground md:text-xl">Software Engineer</p>
+			<p class="mt-2 font-mono text-sm text-muted-foreground">software engineer</p>
 			{@render aboutParagraph(`i started tinkering with computers at age 5
 				and started programming at age 9 on a Raspberry Pi. i have spent tens of thousands of
 				hours since then building whatever my heart desired.`)}
@@ -69,14 +91,49 @@
 				`my dream is to use the full potential of my skills in combination with aviation or performance cars.`
 			)}
 		</section>
-		<footer class="mt-24 border-t border-border pt-8 pb-12">
-			<p class="text-sm text-muted-foreground">published 2026</p>
+
+		<section class="mt-10" aria-labelledby="projects">
+			<h2 id="projects" class="pb-2 font-mono text-xs text-muted-foreground">prized projects</h2>
+
+			<ul>
+				{#each projects as project (project.name)}
+					<li class="group border-t border-border py-3">
+						<div class="min-w-0">
+							<a
+								href={project.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="font-medium text-foreground underline-offset-4 group-hover:underline"
+							>
+								{project.name}
+							</a>
+							<p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+								{project.description}
+							</p>
+							{#if project.appStore}
+								<a
+									href={project.appStore}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="mt-1 inline-block font-mono text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+								>
+									app store →
+								</a>
+							{/if}
+						</div>
+					</li>
+				{/each}
+			</ul>
+		</section>
+
+		<footer class="mt-8 border-t border-border pt-4">
+			<p class="font-mono text-xs text-muted-foreground">published 2026</p>
 		</footer>
-	</div>
+	</main>
 </div>
 
 {#snippet aboutParagraph(content: string)}
-	<p class="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+	<p class="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
 		{content}
 	</p>
 {/snippet}
