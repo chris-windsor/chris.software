@@ -29,6 +29,12 @@
 			description: 'social website to share pictures taken from airplanes'
 		},
 		{
+			name: 'dinersaurs',
+			href: 'https://dinersaurs.com',
+			appStore: 'https://apps.apple.com/us/app/dinersaurs/id6838470978',
+			description: 'couch co-op cooking game for Apple TV, played with your phone'
+		},
+		{
 			name: 'topo.tools',
 			href: 'https://topo.tools',
 			description: 'toolset for researchers to query and scan maps and imagery simultaneously'
@@ -78,7 +84,7 @@
 		</div>
 	</nav>
 
-	<main class="mx-auto max-w-3xl px-6 py-8 md:px-12 md:py-10">
+	<main class="mx-auto max-w-3xl px-6 pt-8 pb-4 md:px-12">
 		<section>
 			<h1 class="text-4xl font-medium tracking-tight text-balance text-foreground md:text-5xl">
 				Chris Windsor
@@ -92,12 +98,12 @@
 			)}
 		</section>
 
-		<section class="mt-10" aria-labelledby="projects">
+		<section class="mt-8" aria-labelledby="projects">
 			<h2 id="projects" class="pb-2 font-mono text-xs text-muted-foreground">prized projects</h2>
 
 			<ul>
 				{#each projects as project (project.name)}
-					<li class="group border-t border-border py-3">
+					<li class="group border-t border-border py-2.5">
 						<div class="min-w-0">
 							<a
 								href={project.href}
@@ -126,7 +132,7 @@
 			</ul>
 		</section>
 
-		<footer class="mt-8 border-t border-border pt-4">
+		<footer class="mt-5 border-t border-border pt-3">
 			<p class="font-mono text-xs text-muted-foreground">published 2026</p>
 		</footer>
 	</main>
