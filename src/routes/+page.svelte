@@ -26,6 +26,7 @@
 		{
 			name: 'windowseat.photos',
 			href: 'https://windowseat.photos',
+			appStore: 'https://apps.apple.com/us/app/windowseat-photos/id6838129154',
 			description: 'social website to share pictures taken from airplanes'
 		},
 		{
@@ -103,29 +104,31 @@
 
 			<ul>
 				{#each projects as project (project.name)}
-					<li class="group border-t border-border py-2.5">
+					<li class="border-t border-border py-2.5">
 						<div class="min-w-0">
-							<a
-								href={project.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="font-medium text-foreground underline-offset-4 group-hover:underline"
-							>
-								{project.name}
-							</a>
+							<div class="flex items-baseline gap-3">
+								<a
+									href={project.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="font-medium text-foreground underline-offset-4 hover:underline"
+								>
+									{project.name}
+								</a>
+								{#if project.appStore}
+									<a
+										href={project.appStore}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="font-mono text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+									>
+										app store →
+									</a>
+								{/if}
+							</div>
 							<p class="mt-1 text-sm leading-relaxed text-muted-foreground">
 								{project.description}
 							</p>
-							{#if project.appStore}
-								<a
-									href={project.appStore}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="mt-1 inline-block font-mono text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-								>
-									app store →
-								</a>
-							{/if}
 						</div>
 					</li>
 				{/each}
