@@ -31,7 +31,7 @@
 		{
 			name: 'dinersaurs',
 			href: 'https://dinersaurs.com',
-			appStore: 'https://apps.apple.com/us/app/dinersaurs/id6838470978',
+			appStore: 'https://apps.apple.com/us/app/dinersaurs/id6838470978?platform=tv',
 			description: 'couch co-op cooking game for Apple TV, played with your phone'
 		},
 		{
