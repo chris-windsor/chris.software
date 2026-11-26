@@ -113,7 +113,10 @@
 									rel="noopener noreferrer"
 									class="font-medium text-foreground underline-offset-4 hover:underline"
 								>
-									{project.name}
+									{project.name}<span
+										class="ml-1 inline-block text-xs text-muted-foreground"
+										aria-hidden="true">↗</span
+									>
 								</a>
 								{#if project.appStore}
 									<a
@@ -122,7 +125,7 @@
 										rel="noopener noreferrer"
 										class="font-mono text-xs text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
 									>
-										app store →
+										app store ↗
 									</a>
 								{/if}
 							</div>
