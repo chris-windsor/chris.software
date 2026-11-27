@@ -292,7 +292,7 @@
 						`my dream is to use the full potential of my skills in combination with aviation or performance cars.`
 					)}
 					<p class="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-						i am currently building apps at
+						i am currently building at
 						<a
 							href={studio.url}
 							target="_blank"
@@ -342,16 +342,9 @@
 				>
 					{#each projects as project (project.name)}
 						<li
-							class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background transition duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+							class="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-background transition duration-300 focus-within:ring-2 focus-within:ring-foreground/20 hover:-translate-y-0.5 hover:shadow-lg"
 						>
-							<a
-								href={project.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								tabindex="-1"
-								aria-hidden="true"
-								class="relative block aspect-[40/21] overflow-hidden border-b border-border"
-							>
+							<div class="relative aspect-[40/21] overflow-hidden border-b border-border">
 								{#if project.hero.kind === 'image'}
 									<img
 										src={project.hero.src}
@@ -373,7 +366,7 @@
 										</span>
 									</div>
 								{/if}
-							</a>
+							</div>
 
 							<div class="flex flex-1 gap-3 p-4">
 								{#if project.icon}
@@ -399,12 +392,9 @@
 										href={project.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="font-medium text-foreground underline-offset-4 hover:underline"
+										class="font-medium text-foreground underline-offset-4 group-hover:underline after:absolute after:inset-0 after:content-[''] focus-visible:outline-none"
 									>
-										{project.name}<span
-											class="ml-1 inline-block text-xs text-muted-foreground"
-											aria-hidden="true">↗</span
-										>
+										{project.name}
 									</a>
 									<p class="mt-0.5 text-sm leading-relaxed text-muted-foreground">
 										{project.description}
@@ -415,7 +405,7 @@
 												href={project.appStore}
 												target="_blank"
 												rel="noopener noreferrer"
-												class="rounded-full bg-foreground px-2.5 py-0.5 text-background transition-opacity hover:opacity-80"
+												class="relative z-10 rounded-full bg-foreground px-2.5 py-0.5 text-background transition-opacity hover:opacity-80"
 											>
 												app store ↗
 											</a>
