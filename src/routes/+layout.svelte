@@ -6,7 +6,6 @@
 </script>
 
 <svelte:head>
-	<title>Chris Windsor · software engineer</title>
 	<link rel="icon" type="image/svg+xml" href={favicon} />
 </svelte:head>
 {@render children()}
